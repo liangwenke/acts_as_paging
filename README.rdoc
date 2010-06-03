@@ -5,46 +5,44 @@ Introduction goes here.
 
 == Usage
 
-#
-#  在需要使用的模型添加如下代码：
-#    include ActsAsPaging
-#    acts_as_paging :paging_filter => :search
-#    其中参数paging_filter 指向一个模型对象的搜索过滤功能的方法名(必须存在此方法才可以用)
-#  
-#  在application_controller.rb文件添加如下代码：
-#    include ActsAsPaging::Support
-#
-#    在有使用到分页工具栏的action加上: build_paging_params(object/collection, search_conditions=nil)
-#    其中object参数可能是分页集合对象或一个实例对象，具体使用如下：
-#    search action: build_paging_params(@posts)
-#    show/edit action: build_paging_params(@post, 'title', 'body')
-#  
-#  在application_helper.rb文件添加如下代码：
-#    include ActsAsPaging::Helper
-#
-#  Views可以使用的参数
-#    @paging_params 查找记录的条件参数
-#    @paging  分页的参数，默认url是: post_path，如果是特殊的url要加上参数path，如 :path => 'edit_post_path'
-#    @paging_params和@paging直接使用即可
-#    
-#  Views具体使用如下:
-#    search page: link to show/edit page 
-#      <%= link_to post.id, post_path(@post, @paging_params) %> or
-#      <%= link_to post.id, edit_post_path(@post, @paging_params) %>
-#    show/edit page
-#      <%= paging_bar(@post, @paging, @paging_params) %> or
-#      <%= paging_bar(@post, @paging.merge(:path => 'edit_post_path'), @paging_params) %>
-#
-#  CSS style:
-#    .page a {
-#      background: #ccc;
-#      text-decoration: none;
-#      padding: 5px 10px;
-#    }
-#    .page a:hover {
-#      background: #eee;
-#    }
-#
+  在需要使用的模型添加如下代码：
+    include ActsAsPaging
+    acts_as_paging :paging_filter => :search
+    其中参数paging_filter 指向一个模型对象的搜索过滤功能的方法名(必须存在此方法才可以用)
+  
+  在application_controller.rb文件添加如下代码：
+    include ActsAsPaging::Support
+
+    在有使用到分页工具栏的action加上: build_paging_params(object/collection, search_conditions=nil)
+    其中object参数可能是分页集合对象或一个实例对象，具体使用如下：
+    search action: build_paging_params(@posts)
+    show/edit action: build_paging_params(@post, 'title', 'body')
+  
+  在application_helper.rb文件添加如下代码：
+    include ActsAsPaging::Helper
+
+  Views可以使用的参数
+    @paging_params 查找记录的条件参数
+    @paging  分页的参数，默认url是: post_path，如果是特殊的url要加上参数path，如 :path => 'edit_post_path'
+    @paging_params和@paging直接使用即可
+    
+  Views具体使用如下:
+    search page: link to show/edit page 
+      <%= link_to post.id, post_path(@post, @paging_params) %> or
+      <%= link_to post.id, edit_post_path(@post, @paging_params) %>
+    show/edit page
+      <%= paging_bar(@post, @paging, @paging_params) %> or
+      <%= paging_bar(@post, @paging.merge(:path => 'edit_post_path'), @paging_params) %>
+
+  CSS style:
+    .page a {
+      background: #ccc;
+      text-decoration: none;
+      padding: 5px 10px;
+    }
+    .page a:hover {
+      background: #eee;
+    }
 
 
 == Install

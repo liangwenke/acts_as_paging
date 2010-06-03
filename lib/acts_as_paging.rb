@@ -8,26 +8,26 @@
 #  在application_controller.rb文件添加如下代码：
 #    include ActsAsPaging::Support
 #
-#    在有使用到分页工具栏的action加上: build_paging_params(object, search_conditions)
+#    在有使用到分页工具栏的action加上: build_paging_params(object/collection, search_conditions=nil)
 #    其中object参数可能是分页集合对象或一个实例对象，具体使用如下：
-#    search action: build_paging_params(collection, search_conditions)
-#    show/edit action: build_paging_params(current_entry, search_conditions)
+#    search action: build_paging_params(@posts)
+#    show/edit action: build_paging_params(@post, 'title', 'body')
 #  
 #  在application_helper.rb文件添加如下代码：
 #    include ActsAsPaging::Helper
 #
 #  Views可以使用的参数
 #    @paging_params 查找记录的条件参数
-#    @paging  分页的参数，默认url是: entry_path，如果是特殊的url要加上参数path，如 :path => 'edit_entry_path'
+#    @paging  分页的参数，默认url是: post_path，如果是特殊的url要加上参数path，如 :path => 'edit_post_path'
 #    @paging_params和@paging直接使用即可
 #    
 #  Views具体使用如下:
 #    search page: link to show/edit page 
-#      <%= link_to entry.id, entry_path(entry, @paging_params) %> or
-#      <%= link_to entry.id, edit_entry_path(entry, @paging_params) %>
+#      <%= link_to post.id, post_path(@post, @paging_params) %> or
+#      <%= link_to post.id, edit_post_path(@post, @paging_params) %>
 #    show/edit page
-#      <%= paging_bar(current_entry, @paging, @paging_params) %> or
-#      <%= paging_bar(current_entry, @paging.merge(:path => 'edit_entry_path'), @paging_params) %>
+#      <%= paging_bar(@post, @paging, @paging_params) %> or
+#      <%= paging_bar(@post, @paging.merge(:path => 'edit_post_path'), @paging_params) %>
 #
 #  CSS style:
 #    .page a {
@@ -38,6 +38,7 @@
 #    .page a:hover {
 #      background: #eee;
 #    }
+#
 
 #require 'ruby-debug'
 
