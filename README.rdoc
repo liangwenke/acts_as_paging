@@ -1,11 +1,9 @@
-ActsAsPaging
-============
+== acts_as_paging plugin
 
 Introduction goes here.
 
 
-Example
-=======
+== Usage
 
 #
 #  在需要使用的模型添加如下代码：
