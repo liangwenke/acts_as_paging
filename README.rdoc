@@ -47,7 +47,7 @@ Introduction goes here.
 
 == Install
 
-  ./script/plugin install git@github.com:wenke/acts_as_paging.git
+  ./script/plugin install git://github.com:wenke/acts_as_paging.git
 
 
 == Note
