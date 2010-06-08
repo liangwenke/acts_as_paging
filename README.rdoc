@@ -42,7 +42,9 @@
 
 == Install
 
-  ./script/plugin install http://github.com/wenke/acts_as_paging.git
+  git clone http://github.com/wenke/acts_as_paging.git OR
+  
+  ./script/plugin install git://github.com/wenke/acts_as_paging.git
 
 
 == Note
