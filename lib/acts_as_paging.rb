@@ -1,20 +1,15 @@
 #==ActsAsPaging
 #
 #  在需要使用的模型添加如下代码：
-#    include ActsAsPaging
 #    acts_as_paging :paging_filter => :search
 #    其中参数paging_filter 指向一个模型对象的搜索过滤功能的方法名(必须存在此方法才可以用)
 #  
-#  在application_controller.rb文件添加如下代码：
-#    include ActsAsPaging::Support
-#
+#  在xxx_controller.rb文件添加如下代码：
 #    在有使用到分页工具栏的action加上: build_paging_params(object/collection, search_conditions=nil)
 #    其中object参数可能是分页集合对象或一个实例对象，具体使用如下：
 #    search action: build_paging_params(@posts)
 #    show/edit action: build_paging_params(@post, 'title', 'body')
-#  
-#  在application_helper.rb文件添加如下代码：
-#    include ActsAsPaging::Helper
+#    new action: build_paging_params(@post || Post.new, 'title', 'body')
 #
 #  Views可以使用的参数
 #    @paging_params 查找记录的条件参数
@@ -179,3 +174,7 @@ module ActsAsPaging
     end       
   end
 end
+
+ActiveRecord::Base.send(:include, ActsAsPaging)
+ActionController::Base.send(:include, ActsAsPaging::Support)
+ActionView::Base.send(:include, ActsAsPaging::Helper)
