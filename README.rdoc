@@ -42,11 +42,9 @@
 
 == Install
 
-  git clone http://github.com/wenke/acts_as_paging.git OR
-  
-  ./script/plugin install git://github.com/wenke/acts_as_paging.git
+  git clone http://github.com/liangwenke/acts_as_paging.git
 
 
 == Note
 
-Copyright (c) 2010 liangwenke8@gmail.com, released under the MIT license
+Copyright (c) 2010 liangwenke.com@gmail.com, released under the MIT license
